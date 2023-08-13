@@ -1,44 +1,44 @@
-Whisper ASR Speech-to-Text Python Script
+# Real-Time Speech Recognition with OpenAI's Whisper
 
-This Python script uses the Whisper ASR (Automatic Speech Recognition) system, developed by OpenAI, to convert spoken language into written text. It continuously listens to audio input from a microphone, processes the audio data in real-time, and outputs the transcribed text to the console. This script is useful for a variety of applications, such as transcription services, voice assistants, and more.
-Settings and Options
+This script uses OpenAI's Whisper Automatic Speech Recognition (ASR) system to transcribe
+ speech in real-time. t continuously listens to audio input from a microphone, processes 
+ the audio data in real-time, and outputs the transcribed text to the console. This script
+ is useful for a variety of applications, such as transcription services, voice assistants,
+   and more.
 
-This script provides several command-line arguments to customize its behavior:
+## Prerequisites
 
-    --model: Specifies the model to use for the Whisper ASR system. Options include tiny, base, small, medium, and large. The default value is medium.
+- Python 3.7+
+- whisper
+- speech_recognition
+- pyaudio
+- torch
 
-    --non_english: If this flag is set, the script won't use the English model.
+You can install the required Python packages with pip:
 
-    --energy_threshold: Sets the energy level for the microphone to detect. The default value is 1000.
-
-    --record_timeout: Defines how real-time the recording is, in seconds. The default value is 2.
-
-    --phrase_timeout: Specifies how much empty space between recordings before we consider it a new line in the transcription, in seconds. The default value is 3.
-
-    --default_microphone: Sets the default microphone name for SpeechRecognition. The default value is pulse. If list is provided as an argument, the script will list available microphones.
-
-Usage
-
-First, make sure all the necessary Python packages are installed by running:
-
-bash
-
+```sh
 pip install -r requirements.txt
+```
 
-Then, you can run the script using the following command:
+## Usage
 
-bash
+```sh
+python whisper_stt.py --model medium --energy_threshold 1000 --record_timeout 2 --phrase_timeout 3
+```
 
-python script_name.py
+### Options
 
-Replace script_name.py with the actual name of the script.
+- `--model`: The model to use for Whisper. Options are "tiny", "base", "small", "medium", "large". Default is "medium".
+- `--non_english`: If set, the script will use the non-English version of the specified Whisper model.
+- `--energy_threshold`: The energy level for the microphone to detect. Default is 1000.
+- `--record_timeout`: The real-time recording duration in seconds. Default is 2 seconds.
+- `--phrase_timeout`: The time in seconds of silence between recordings before the script considers it a new line in the transcription. Default is 3 seconds.
 
-You can also specify command-line arguments as follows:
+## Notes
 
-bash
+For more information on Whisper, visit [OpenAI's Whisper ASR System](https://github.com/openai/whisper).
 
-python script_name.py --model large --energy_threshold 1500 --record_timeout 3 --phrase_timeout 4
 
-Note
+## Credits
 
-For more information about the Whisper ASR system, please visit the official OpenAI Whisper project.
+This implementation is inspired by the real-time Whisper demo provided by [davabase/whisper_real_time](https://github.com/davabase/whisper_real_time).
