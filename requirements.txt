@@ -1,0 +1,5 @@
+pyaudio
+argparse
+SpeechRecognition
+openai-whisper
+torch
